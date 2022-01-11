@@ -18,22 +18,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Keymap 0: Basic layer
  *
  * ,--------------------------------------------------.           ,--------------------------------------------------.
- * | ESC    |   1  |   2  |   3  |   4  |   5  | ESC  |           | Del  |   6  |   7  |   8  |   9  |   0  |   -/=  |
+ * | ESC    |   1  |   2  |   3  |   4  |   5  | ESC  |           | Del  |   6  |   7  |   8  |   9  |   0  |   -    |
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
  * | Tab    |   Q  |   W  |   E  |   R  |   T  |Backsp|           |Backsp|   Y  |   U  |   I  |   O  |   P  |   [    |
  * |--------+------+------+------+------+------|ace   |           |ace   |------+------+------+------+------+--------|
- * | ~      |   A  |   S  |   D  |   F  |   G  |------|           |------|   H  |   J  |   K  |   L  |   ;  |'/RShift|
+ * | ~      |   A  |   S  |   D  |   F  |   G  |------|           |------|   H  |   J  |   K  |   L  |   ;  |   '    |
  * |--------+------+------+------+------+------|Enter |           |Enter |------+------+------+------+------+--------|
- * | LShift |   Z  |   X  |   C  |   V  |   B  |      |           |      |   N  |   M  |   ,  |   .  |   /  |\/Ctrl  |
+ * | LShift |   Z  |   X  |   C  |   V  |   B  |      |           |      |   N  |   M  |   ,  |   .  |   /  |   \    |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
- *   |Ctrl  |Fn    |      | Meta | Alt  |                                       |AltGR |      |      |      |   ]  |
+ *   |Ctrl  |Fn    |      | Meta | Alt  |                                       |AltGR |      |      |   =  |   ]  |
  *   `----------------------------------'                                       `----------------------------------'
  *                                        ,-------------.       ,-------------.
  *                                        | Home |      |       |      | End  |
  *                                 ,------|------|------|       |------+------+------.
- *                                 |      |      | Cut  |       |      |      |      |
+ *                                 |      |      | Cut  |       | Paste|      |      |
  *                                 | Space|LShift|------|       |------|RShift|Space |
- *                                 |      |      | Copy |       | Paste|      |      |
+ *                                 |      |      | Copy |       | Ctrl |      |      |
  *                                 `--------------------'       `--------------------'
  */
 // If it accepts an argument (i.e, is a function), it doesn't need KC_.
@@ -51,12 +51,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // right hand
         KC_DEL,     KC_6,     KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS,
         KC_BSPC,    KC_Y,     KC_U,    KC_I,    KC_O,    KC_P,    KC_LBRC,
-                    KC_H,     KC_J,    KC_K,    KC_L,    KC_SCLN, RSFT_T(KC_QUOT),
-        KC_ENT,     KC_N,     KC_M,    KC_COMM, KC_DOT,  KC_SLSH, CTL_T(KC_BSLS),
+                    KC_H,     KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
+        KC_ENT,     KC_N,     KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_BSLS,
                               KC_RALT, _______, _______, KC_EQL,  KC_RBRC,
         _______,    KC_END,
-        _______,
-        KC_PASTE,   KC_RSFT,  KC_SPC
+        KC_PASTE,
+        KC_RCTL,    KC_RSFT,  KC_SPC
     ),
 /* Keymap 1: Function Layer
  *
