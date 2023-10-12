@@ -29,7 +29,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *   |Ctrl  |Fn    |Media | Meta | Alt  |                                       |AltGR |AltMaj|      |   =  |   ]  |
  *   `----------------------------------'                                       `----------------------------------'
  *                                        ,-------------.       ,-------------.
- *                                        | Home |      |       |      | End  |
+ *                                        | Home | F5   |       | F5   | End  |
  *                                 ,------|------|------|       |------+------+------.
  *                                 |      |      | Cut  |       | Paste|      |      |
  *                                 | Space|LShift|------|       |------|RShift|Space |
@@ -45,7 +45,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_GRV,  KC_A,    KC_S,     KC_D,    KC_F,    KC_G,
         KC_LSFT, KC_Z,    KC_X,     KC_C,    KC_V,    KC_B,    KC_ENT,
         KC_LCTL, MO(FN),  MO(MDIA), KC_LGUI, KC_LALT,
-                                                     KC_HOME, _______,
+                                                     KC_HOME, KC_F5,
                                                               KC_CUT,
                                             KC_SPC,  KC_LSFT, KC_COPY,
         // right hand
@@ -54,7 +54,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                     KC_H,     KC_J,    KC_K,          KC_L,    KC_SCLN, KC_QUOT,
         KC_ENT,     KC_N,     KC_M,    KC_COMM,       KC_DOT,  KC_SLSH, KC_BSLS,
                               KC_RALT, ALGR(KC_RSFT), _______, KC_EQL,  KC_RBRC,
-        _______,    KC_END,
+        KC_F5,      KC_END,
         KC_PASTE,
         KC_RCTL,    KC_RSFT,  KC_SPC
     ),
@@ -84,7 +84,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        // left hand
        VRSN,    KC_F1,    KC_F2,    KC_F3,   KC_F4,   KC_F5,   _______,
        EPRM,    _______,  _______,  _______, _______, _______, _______,
-       DEBUG,   _______,  _______,  _______, _______, _______,
+       DB_TOGG, _______,  _______,  _______, _______, _______,
        RVRSN,   _______,  _______,  _______, _______, _______, _______,
        _______, _______,  MO(MDIA), _______, _______,
                                                      _______, _______,
@@ -211,9 +211,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
         case KC_LSFT:
         case KC_RSFT:
             // TODO: this is an attempt but does not work well as expected.
-            if (IS_PRESSED(record->event))
+            if (record->event.pressed)
                 ergodox_board_led_on();
-            else if (IS_RELEASED(record->event))
+            else if (!record->event.pressed)
                 ergodox_board_led_off();
   }
   return true;
